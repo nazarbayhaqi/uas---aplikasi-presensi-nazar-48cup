@@ -24,28 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `presensi`
+-- Struktur dari tabel `user`
 --
 
-CREATE TABLE `presensi` (
-  `tgl_presensi` datetime NOT NULL,
-  `makul` varchar(50) NOT NULL,
-  `kelas` char(2) NOT NULL,
-  `nim` char(10) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `status_presensi` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `user` (
+  `email` varchar(20) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `role` varchar(20) NOT NULL,
+  `date_create` char(10) NOT NULL,
+  `date_modified` char(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`email`, `name`, `password`, `role`, `date_create`, `date_modified`) VALUES
+('nazar@gmail.com', 'nazarbayhaqi', 'nazar', 'Admin', 'date_creat', '2022-11-21');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `presensi`
+-- Indeks untuk tabel `user`
 --
-ALTER TABLE `presensi`
-  ADD PRIMARY KEY (`tgl_presensi`),
-  ADD UNIQUE KEY `nim` (`nim`);
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`email`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
